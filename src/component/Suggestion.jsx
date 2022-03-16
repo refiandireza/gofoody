@@ -31,7 +31,7 @@ function Suggestion() {
     return (
     <article className='pb-6'>
             <h2 className='text-center text-3xl mb-5 text-teal-600'>For You</h2>
-            <div className='card-container mx-5 grid grid-cols-1 sm:grid-cols-8 md:grid-cols-12 md:gap-4 lg:mx-10'>
+            <div className='card-container mx-5 grid grid-cols-1 sm:grid-cols-8 md:grid-cols-12 md:gap-4 lg:mx-8 xl:mx-24'>
                 {
                     suggestion.map((item) => (
                     <Link className='flex justify-center items-center mb-5 sm:col-span-4 md:col-span-4 2xl:col-span-3' key={item.id} to={`/recipe/${item.id}`}>

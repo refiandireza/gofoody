@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 function CardSuggestion({data}) {
     return(
-        <div className="group max-w-[250px] shadow-md overflow-hidden rounded-md h-full w-full ">
+        <div className="group max-w-[250px] 2xl:max-w-[320px] shadow-md overflow-hidden rounded-md h-full w-full ">
             <figure className="h-[110px] lg:h-[160px] w-full overflow-hidden relative bg-slate-50">
                 <img className="group-hover:scale-110 transition ease-in-out delay-150 duration-300 object-cover h-full w-full" loading="lazy" src={data.image ? data.image : '/src/img/NoImageFound.png'} alt={data.title}/>
                 

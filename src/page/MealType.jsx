@@ -37,7 +37,7 @@ function MealType() {
             {
                 type.length > 0 ?
                 type.map((item) => (
-                <Link className="w-full max-w-[280px] mx-auto mb-5 rounded-md overflow-hidden shadow-lg sm:col-span-4 md:col-span-4 2xl:col-span-3" key={item.id} to={`/recipe/${item.id}`}>
+                <Link className="w-full max-w-[280px] 2xl:max-w-[320px] mx-auto mb-5 rounded-md overflow-hidden shadow-lg sm:col-span-4 md:col-span-4 2xl:col-span-3" key={item.id} to={`/recipe/${item.id}`}>
                     <div>
                         <figure className='w-full h-[160px]'>
                             <img className='object-cover h-full w-full' loading='lazy' src={item.image}/>

@@ -66,7 +66,7 @@ function RecipePage() {
     <>
       {
         isLoading ? <Spinner/> : (
-          <div key={details.id} className='bg-slate-50 py-8 px-5'>
+          <div key={details.id} className='bg-slate-50 py-8 px-5 lg:px-0'>
             <Recipe  data={details}/>
             {/* <h1>{details.title}</h1> */}
             {/* <h1>Hello</h1> */}
