@@ -1,15 +1,19 @@
 import { useState, useEffect } from 'react'
 import Card from './Card'
 import { Splide, SplideSlide } from '@splidejs/react-splide'
+import SkeletonCard from './Skeleton';
 
 
 
 function Dessert() {
     const [dessert, setDessert] = useState([]);
+    const [loading, setLoading] = useState(false);
     const getDessert = async () => {
-        const response = await fetch(`https://api.spoonacular.com/recipes/random?apiKey=${import.meta.env.VITE_KEY_API_2}&number=10&tags=dessert`);
+        setLoading(true);
+        const response = await fetch(`https://api.spoonacular.com/recipes/random?apiKey=${import.meta.env.VITE_KEY_API}&number=10&tags=dessert`);
         const data = await response.json();
         setDessert(data.recipes);
+        setLoading(false);
         
         // const getLocalStorage = localStorage.getItem('dessert');
 
@@ -53,7 +57,9 @@ function Dessert() {
                     }
                 }}>
                     {
-                        dessert.map((item) => (
+                        loading ? 
+                        (<SkeletonCard/>) : 
+                            dessert.map((item) => (
                             <SplideSlide key={item.id}>
                                 <Card data={item}/>
                             </SplideSlide>

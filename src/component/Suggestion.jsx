@@ -1,15 +1,18 @@
 import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom';
 import CardSuggestion from './CardSuggestion';
+import SkeletonCard from './Skeleton';
 
 function Suggestion() {
-  const [suggestion, setSuggestion] = useState([]);
+    const [suggestion, setSuggestion] = useState([]);
+    const [loading, setLoading] = useState(false);
     const getSuggestion = async () => {
-        const response = await fetch(`https://api.spoonacular.com/recipes/random?apiKey=${import.meta.env.VITE_KEY_API_2}&number=10`);
+        setLoading(true);
+        const response = await fetch(`https://api.spoonacular.com/recipes/random?apiKey=${import.meta.env.VITE_KEY_API}&number=10`);
         const data = await response.json();
         
         setSuggestion(data.recipes);
-        
+        setLoading(false);
         // const getLocalStorage = localStorage.getItem('dessert');
 
         // if(getLocalStorage) {
@@ -31,15 +34,18 @@ function Suggestion() {
     return (
     <article className='pb-6'>
             <h2 className='text-center text-3xl mb-5 text-teal-600'>For You</h2>
-            <div className='card-container mx-5 grid grid-cols-1 sm:grid-cols-8 md:grid-cols-12 md:gap-4 lg:mx-8 xl:mx-24'>
+            <div className='card-container mx-5 grid grid-cols-1 sm:grid-cols-8 md:grid-cols-12 md:gap-4 lg:mx-8 xl:mx-24 h-min-[320px]'>
                 {
+                    loading ? (<SkeletonCard/>) : (
+                    
                     suggestion.map((item) => (
-                    <Link className='flex justify-center items-center mb-5 sm:col-span-4 md:col-span-4 2xl:col-span-3' key={item.id} to={`/recipe/${item.id}`}>
-                        <CardSuggestion  data={item}/>
-
-                    </Link>
+                        <Link className='flex justify-center items-center mb-5 sm:col-span-4 md:col-span-4 2xl:col-span-3' key={item.id} to={`/recipe/${item.id}`}>
+                            <CardSuggestion  data={item}/>
+                        </Link>
                     ))
+                    )
                 }
+                
             </div>
             
         </article>

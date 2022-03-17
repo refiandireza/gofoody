@@ -1,16 +1,22 @@
 import { useState, useEffect } from 'react'
 import Card from './Card'
 import { Splide, SplideSlide } from '@splidejs/react-splide'
+import SkeletonCard from './Skeleton';
 
 
 
 
 function Popular() {
     const [recipe, setRecipe] = useState([]);
+    const [loading, setLoading] = useState(false);
+
     const getRecipe = async () => {
-        const response = await fetch(`https://api.spoonacular.com/recipes/random?apiKey=${import.meta.env.VITE_KEY_API_2}&number=10`);
+        setLoading(true);
+        const response = await fetch(`https://api.spoonacular.com/recipes/random?apiKey=${import.meta.env.VITE_KEY_API}&number=10`);
         const data = await response.json();
         setRecipe(data.recipes);
+        setLoading(false);
+        
         
         // const getLocalStorage = localStorage.getItem('recipe');
 
@@ -61,11 +67,15 @@ function Popular() {
                     }
                 }}>
                     {
-                        recipe.map((item) => (
+                        loading ? 
+                        (<SkeletonCard/>) : 
+                            recipe.map((item) => (
                             <SplideSlide key={item.id}>
                                 <Card data={item}/>
                             </SplideSlide>
                         ))
+                        
+                        
                     }
                 </Splide>
             </div>
