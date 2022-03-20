@@ -8,7 +8,7 @@ function Suggestion() {
     const [loading, setLoading] = useState(false);
     const getSuggestion = async () => {
         setLoading(true);
-        const response = await fetch(`https://api.spoonacular.com/recipes/random?apiKey=${import.meta.env.VITE_KEY_API}&number=10`);
+        const response = await fetch(`https://api.spoonacular.com/recipes/random?apiKey=${import.meta.env.VITE_KEY_API_2}&number=10`);
         const data = await response.json();
         
         setSuggestion(data.recipes);

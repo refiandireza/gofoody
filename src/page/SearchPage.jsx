@@ -1,9 +1,8 @@
-import { Spin } from 'hamburger-react'
 import React from 'react'
 import { useState, useEffect } from 'react'
 import {useParams, Link} from 'react-router-dom'
 import Empty from '../component/Empty'
-import Spinner from '../component/Spinner'
+import SkeletonCard from '../component/Skeleton'
 
 function SearchPage() {
   let params = useParams();
@@ -18,18 +17,6 @@ function SearchPage() {
 
     setSearch(data.results);
     setIsLoading(false);
-    
-    // const local = localStorage.getItem('search');
-    // if(local) {
-    //     setSearch(JSON.parse(local));
-    // } else {
-    //     const response = await fetch(`https://api.spoonacular.com/recipes/complexSearch?apiKey=${import.meta.env.VITE_KEY_API_2}&query=${name}&number=20`);
-
-    //     const data = await response.json();
-
-    //     localStorage.setItem('search', JSON.stringify(data.results));
-    //     setSearch(data.results);  
-    // }
   }
 
   const renderSearchItem = (
@@ -38,9 +25,10 @@ function SearchPage() {
             search.length > 0 ?
             search.map((item) => (
             <Link className='sm:col-span-4 md:col-span-4 2xl:col-span-3' key={item.id} to={`/recipe/${item.id}`}>
-              <div  className="w-full max-w-[280px] mx-auto mb-5 rounded-md overflow-hidden shadow-lg ">
-                  <figure className='w-full h-[160px]'>
-                      <img className='object-cover h-full w-full' src={item.image} alt={item.title}/>
+              <div  className="group w-full max-w-[280px] mx-auto mb-5 rounded-md overflow-hidden shadow-lg ">
+                  <figure className='w-full h-[160px] relative overflow-hidden'>
+                      <img className='group-hover:scale-110 transition ease-in-out delay-100 duration-300 object-cover h-full w-full' src={item.image} alt={item.title}/>
+                      <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-teal-500/[.2] to-teal-500/[.2] group-hover:bg-none"/>
                   </figure>
                   <p className='my-3 text-center'>{item.title}</p>
               </div>
@@ -58,12 +46,15 @@ function SearchPage() {
     return (
     <article className='py-6'>
             <h3 className='text-center text-3xl mb-5 md:text-4xl text-teal-600'>Result for {params.search} : </h3>
-            {
-                isLoading ? <Spinner/>
+            <div className='flex flex-row justify-center items-center flex-wrap'>
+              {
+                isLoading ? <SkeletonCard/>
                  : renderSearchItem
             }
+            </div>
             
-        </article>
+            
+    </article>
   )
 }
 

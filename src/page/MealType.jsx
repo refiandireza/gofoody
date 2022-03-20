@@ -4,6 +4,7 @@ import Category from '../component/Category';
 import { Link } from 'react-router-dom';
 import Spinner from '../component/Spinner';
 import Empty from '../component/Empty';
+import SkeletonCard from '../component/Skeleton';
 
 function MealType() {
     const [type, setType] = useState([]);
@@ -18,18 +19,6 @@ function MealType() {
         setType(data.results);
         setIsLoading(false);
         console.log(data.results);
-        
-        // const local = localStorage.getItem('cuisine');
-        // if(local) {
-        //     setCuisine(JSON.parse(local));
-        // } else {
-        //     const response = await fetch(`https://api.spoonacular.com/recipes/complexSearch?apiKey=${import.meta.env.VITE_KEY_API_2}&cuisine=${name}`);
-
-        //     const data = await response.json();
-
-        //     localStorage.setItem('cuisine', JSON.stringify(data.results));
-        //     setCuisine(data.results);  
-        // }
     }
 
     const renderTypeList = (
@@ -60,9 +49,12 @@ function MealType() {
             <Category/>
             <article className='py-6'>
                 <h3 className='text-center text-3xl mb-5 text-teal-600'>Food & Drink Results</h3>
-                {
-                    isLoading ? (<Spinner/>) : renderTypeList
+                <div className='flex flex-row justify-center items-center flex-wrap'>
+                    {
+                    isLoading ? (<SkeletonCard/>) : renderTypeList
                 }
+                </div>
+                
                 
             </article>
         </>

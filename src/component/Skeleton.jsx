@@ -4,7 +4,7 @@ import Skeleton from "react-loading-skeleton";
 function SkeletonCard() {
   return (
     <>
-        <div className="group max-w-[250px] 2xl:max-w-[320px] shadow-md overflow-hidden rounded-md h-full w-full mx-2 sm:col-span-4 md:col-span-4 2xl:col-span-3">
+        <div className="group max-w-[250px] 2xl:max-w-[320px] shadow-md overflow-hidden rounded-md h-full w-full mx-2 sm:col-span-4 md:col-span-4 2xl:col-span-3 mb-5">
                 <figure className="h-[110px] lg:h-[160px] w-full overflow-hidden relative bg-slate-50">
                     <Skeleton className="group-hover:scale-110 transition ease-in-out delay-150 duration-300 object-cover h-full w-full" />
                 </figure>
@@ -17,7 +17,7 @@ function SkeletonCard() {
                 </div>
         </div>
 
-        <div className="group max-w-[250px] 2xl:max-w-[320px] shadow-md overflow-hidden rounded-md h-full w-full mx-2 sm:col-span-4 md:col-span-4 2xl:col-span-3">
+        <div className="group max-w-[250px] 2xl:max-w-[320px] shadow-md overflow-hidden rounded-md h-full w-full mx-2 sm:col-span-4 md:col-span-4 2xl:col-span-3 mb-5">
                 <figure className="h-[110px] lg:h-[160px] w-full overflow-hidden relative bg-slate-50">
                     <Skeleton className="group-hover:scale-110 transition ease-in-out delay-150 duration-300 object-cover h-full w-full" />
                 </figure>
@@ -30,7 +30,7 @@ function SkeletonCard() {
                 </div>
         </div>
 
-        <div className="group max-w-[250px] 2xl:max-w-[320px] shadow-md overflow-hidden rounded-md h-full w-full mx-2 sm:col-span-4 md:col-span-4 2xl:col-span-3">
+        <div className="group max-w-[250px] 2xl:max-w-[320px] shadow-md overflow-hidden rounded-md h-full w-full mx-2 sm:col-span-4 md:col-span-4 2xl:col-span-3 mb-5">
                 <figure className="h-[110px] lg:h-[160px] w-full overflow-hidden relative bg-slate-50">
                     <Skeleton className="group-hover:scale-110 transition ease-in-out delay-150 duration-300 object-cover h-full w-full" />
                 </figure>
@@ -43,7 +43,7 @@ function SkeletonCard() {
                 </div>
         </div>
 
-        <div className="group max-w-[250px] 2xl:max-w-[320px] shadow-md overflow-hidden rounded-md h-full w-full mx-2 sm:col-span-4 md:col-span-4 2xl:col-span-3">
+        <div className="group max-w-[250px] 2xl:max-w-[320px] shadow-md overflow-hidden rounded-md h-full w-full mx-2 sm:col-span-4 md:col-span-4 2xl:col-span-3 mb-5">
                 <figure className="h-[110px] lg:h-[160px] w-full overflow-hidden relative bg-slate-50">
                     <Skeleton className="group-hover:scale-110 transition ease-in-out delay-150 duration-300 object-cover h-full w-full" />
                 </figure>

@@ -12,8 +12,9 @@ function Header() {
             <Link to={'/'} className='text-2xl text-white text-bold flex flex-row items-center justify-around'><MdFastfood size='.95em'/> <h2 className='ml-2'>GoFoody</h2></Link>
             <nav className=''>
                 <ul className='md:flex flex-row hidden'>
-                    <li className='text-white mr-5 text-2xl'>Favorite</li>
-                    <li className='text-white mr-5 text-2xl'>Cart</li>
+                    <Link to={'/favorite/'}>
+                        <li className='text-white mr-5 text-2xl'>Favorite</li>
+                    </Link>
                     <li className='text-white text-2xl'>About</li>
                 </ul>
                 <div className='md:hidden'>
